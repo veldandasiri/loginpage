@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Stackly pos Dashboard</title>
+
+    <!-- Google Font -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Chart JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <link rel="stylesheet" href="dashboard.css">
+
+</head>
+
+<body>
+
+<div class="background">
+
+    <span class="blob blob1"></span>
+    <span class="blob blob2"></span>
+
+</div>
+
+<div class="container">
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                <i class="fa-solid fa-layer-group"></i>
+            </div>
+
+            <div>
+                <h2>STACKLY</h2>
+                <p>pos System</p>
+            </div>
+
+        </div>
+
+        <ul class="menu">
+
+    <li class="active" onclick="goDashboard()">
+        <i class="fa-solid fa-house"></i>
+        <span>Dashboard</span>
+    </li>
+
+    <li onclick="goSales()">
+        <i class="fa-solid fa-chart-line"></i>
+        <span>Sales</span>
+    </li>
+
+    <li onclick="goInvoices()">
+        <i class="fa-solid fa-file-invoice"></i>
+        <span>Invoices</span>
+    </li>
+
+    <li onclick="goProducts()">
+        <i class="fa-solid fa-box"></i>
+        <span>Products</span>
+    </li>
+
+    <li onclick="goInventory()">
+        <i class="fa-solid fa-warehouse"></i>
+        <span>Inventory</span>
+    </li>
+
+    <li onclick="goCustomers()">
+        <i class="fa-solid fa-users"></i>
+        <span>Customers</span>
+    </li>
+
+    <li onclick="goSuppliers()">
+        <i class="fa-solid fa-truck"></i>
+        <span>Suppliers</span>
+    </li>
+
+    <li onclick="goReports()">
+        <i class="fa-solid fa-chart-pie"></i>
+        <span>Reports</span>
+    </li>
+
+    <li onclick="goSettings()">
+        <i class="fa-solid fa-gear"></i>
+        <span>Settings</span>
+    </li>
+
+    <li class="logout">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        <span>Logout</span>
+    </li>
+
+</ul>
+
+        </ul>
+
+    </aside>
+
+    <!-- Main -->
+
+    <main class="main">
+
+        <!-- Navbar -->
+
+        <header class="navbar">
+
+            <div class="left">
+
+                <button class="menu-btn">
+
+                    <i class="fa-solid fa-bars"></i>
+
+                </button>
+
+                <div class="search">
+
+                    <i class="fa-solid fa-search"></i>
+
+                    <input id="dashboardSearch" type="text" placeholder="Search anything...">
+
+                </div>
+
+            </div>
+
+            <div class="right">
+
+                <button class="icon-btn">
+
+                    <i class="fa-regular fa-bell"></i>
+
+                    <span class="badge">4</span>
+
+                </button>
+
+                <button class="icon-btn">
+
+                    <i class="fa-regular fa-envelope"></i>
+
+                    <span class="badge">3</span>
+
+                </button>
+
+                <button class="icon-btn">
+
+                    <i class="fa-solid fa-moon"></i>
+                    
+
+                </button>
+
+               <div class="profile" id="profileMenu">
+
+    <img src="https://i.pravatar.cc/100?img=12" alt="Profile">
+
+    <div>
+        <h4>Siri Reddy</h4>
+        <span>Administrator</span>
+    </div>
+
+    <i class="fa-solid fa-chevron-down"></i>
+
+    <div class="profile-dropdown">
+
+        <a href="#" data-popup="profileDetailsPopup">
+            <i class="fa-solid fa-user"></i>
+            My Profile
+        </a>
+
+        <a href="#" data-popup="accountSettingsPopup">
+            <i class="fa-solid fa-user-gear"></i>
+            Account Settings
+        </a>
+
+        <a href="#" data-popup="changePasswordPopup">
+            <i class="fa-solid fa-key"></i>
+            Change Password
+        </a>
+
+        <a href="#" id="logoutFromProfile">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Logout
+        </a>
+
+    </div>
+
+</div>
+
+
+<!-- Profile Popup -->
+
+<div id="profilePopup" class="popup-overlay">
+
+    <div class="popup-box">
+
+        <div class="popup-icon">
+            <i class="fa-solid fa-user"></i>
+        </div>
+
+        <h2>My Account</h2>
+
+        <p>Choose an option</p>
+
+        <div class="profile-popup-buttons">
+
+            <button id="myProfileBtn">
+                <i class="fa-solid fa-user"></i>
+                My Profile
+            </button>
+
+            <button id="changePasswordBtn">
+                <i class="fa-solid fa-key"></i>
+                Change Password
+            </button>
+
+            <button id="settingsBtn">
+                <i class="fa-solid fa-gear"></i>
+                Settings
+            </button>
+
+            <button id="profileLogoutBtn" class="logout-btn">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </button>
+
+        </div>
+
+        <button id="closeProfile" class="cancel-btn">
+            Close
+        </button>
+
+    </div>
+
+</div>
+
+            </div>
+
+        </header>
+
+        <!-- Welcome -->
+
+        <section class="welcome">
+
+            <div>
+
+                <h1>Welcome Back /h1>
+
+                <p>Monitor your business performance in real time.</p>
+
+            </div>
+
+            <button class="primary-btn">
+
+                Generate Report
+
+            </button>
+
+        </section>
+
+        <!-- Statistics -->
+
+        <section class="cards">
+
+            <div class="card">
+
+                <div class="icon sales">
+
+                    <i class="fa-solid fa-indian-rupee-sign"></i>
+
+                </div>
+
+                <div>
+
+                    <h5>Total Revenue</h5>
+
+                    <h2>₹8,42,500</h2>
+
+                    <span>+18% this month</span>
+
+                </div>
+
+            </div>
+
+            <div class="card">
+
+                <div class="icon orders">
+
+                    <i class="fa-solid fa-cart-shopping"></i>
+
+                </div>
+
+                <div>
+
+                    <h5>Orders</h5>
+
+                    <h2>1,254</h2>
+
+                    <span>+52 Today</span>
+
+                </div>
+
+            </div>
+
+            <div class="card">
+
+                <div class="icon customers">
+
+                    <i class="fa-solid fa-users"></i>
+
+                </div>
+
+                <div>
+
+                    <h5>Customers</h5>
+
+                    <h2>895</h2>
+
+                    <span>+12 New</span>
+
+                </div>
+
+            </div>
+
+            <div class="card">
+
+                <div class="icon products">
+
+                    <i class="fa-solid fa-box-open"></i>
+
+                </div>
+
+                <div>
+
+                    <h5>Products</h5>
+
+                    <h2>452</h2>
+
+                    <span>15 Low Stock</span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Charts -->
+
+        <section class="charts">
+
+            <div class="chart-card">
+
+                <div class="card-header">
+
+                    <h3>Sales Analytics</h3>
+
+                </div>
+
+                <canvas id="salesChart"></canvas>
+
+            </div>
+
+            <div class="chart-card small">
+
+                <div class="card-header">
+
+                    <h3>Revenue Sources</h3>
+
+                </div>
+
+                <canvas id="revenueChart"></canvas>
+
+            </div>
+
+        </section>
+
+                <!-- Recent Orders -->
+
+        <section class="bottom-grid">
+
+            <div class="orders-card">
+
+                <div class="card-header">
+
+                    <h3>Recent Orders</h3>
+
+                    <button>View All</button>
+
+                </div>
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Order ID</th>
+
+                            <th>Customer</th>
+
+                            <th>Product</th>
+
+                            <th>Amount</th>
+
+                            <th>Status</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>#1001</td>
+
+                            <td>John Smith</td>
+
+                            <td>Laptop</td>
+
+                            <td>₹52,000</td>
+
+                            <td><span class="status paid">Paid</span></td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>#1002</td>
+
+                            <td>Siri Reddy</td>
+
+                            <td>Keyboard</td>
+
+                            <td>₹2,450</td>
+
+                            <td><span class="status pending">Pending</span></td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>#1003</td>
+
+                            <td>Rahul</td>
+
+                            <td>Monitor</td>
+
+                            <td>₹18,000</td>
+
+                            <td><span class="status shipped">Shipped</span></td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>#1004</td>
+
+                            <td>Priya</td>
+
+                            <td>Mouse</td>
+
+                            <td>₹850</td>
+
+                            <td><span class="status paid">Paid</span></td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>#1005</td>
+
+                            <td>David</td>
+
+                            <td>Printer</td>
+
+                            <td>₹15,200</td>
+
+                            <td><span class="status cancelled">Cancelled</span></td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <!-- Right Side Widgets -->
+
+            <div class="widgets">
+
+                <!-- Low Stock -->
+
+                <div class="widget">
+
+                    <div class="card-header">
+
+                        <h3>Low Stock</h3>
+
+                    </div>
+
+                    <ul class="stock-list">
+
+                        <li>
+
+                            <span>Mouse</span>
+
+                            <strong>5 Left</strong>
+
+                        </li>
+
+                        <li>
+
+                            <span>Keyboard</span>
+
+                            <strong>7 Left</strong>
+
+                        </li>
+
+                        <li>
+
+                            <span>Printer</span>
+
+                            <strong>2 Left</strong>
+
+                        </li>
+
+                        <li>
+
+                            <span>CPU Cabinet</span>
+
+                            <strong>4 Left</strong>
+
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <!-- Today's Schedule -->
+
+                <div class="widget">
+
+                    <div class="card-header">
+
+                        <h3>Today's Schedule</h3>
+
+                    </div>
+
+                    <div class="schedule">
+
+                        <div class="task">
+
+                            <span class="dot blue"></span>
+
+                            <div>
+
+                                <h4>Team Meeting</h4>
+
+                                <p>09:30 AM</p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="task">
+
+                            <span class="dot pink"></span>
+
+                            <div>
+
+                                <h4>Inventory Review</h4>
+
+                                <p>11:00 AM</p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="task">
+
+                            <span class="dot green"></span>
+
+                            <div>
+
+                                <h4>Client Demo</h4>
+
+                                <p>02:00 PM</p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="task">
+
+                            <span class="dot orange"></span>
+
+                            <div>
+
+                                <h4>Daily Report</h4>
+
+                                <p>05:30 PM</p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Quick Actions -->
+
+                <div class="widget">
+
+                    <div class="card-header">
+
+                        <h3>Quick Actions</h3>
+
+                    </div>
+
+                    <div class="quick-grid">
+
+                        <button>
+
+                            <i class="fa-solid fa-plus"></i>
+
+                            Add Product
+
+                        </button>
+
+                        <button>
+
+                            <i class="fa-solid fa-user-plus"></i>
+
+                            Customer
+
+                        </button>
+
+                        <button>
+
+                            <i class="fa-solid fa-file-circle-plus"></i>
+
+                            Invoice
+
+                        </button>
+
+                        <button>
+
+                            <i class="fa-solid fa-chart-column"></i>
+
+                            Reports
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<div id="profileDetailsPopup" class="popup-overlay">
+
+    <div class="popup-box">
+
+        <div class="popup-icon">
+            <i class="fa-solid fa-user"></i>
+        </div>
+
+        <h2>My Profile</h2>
+
+        <p>Name : Siri Reddy</p>
+        <p>Role : Administrator</p>
+        <p>Email : admin@stackly.com</p>
+
+        <div class="popup-buttons">
+            <button id="closeProfileDetails" class="cancel-btn">
+                Close
+            </button>
+        </div>
+
+    </div>
+
+</div>
+<div id="accountSettingsPopup" class="popup-overlay">
+
+    <div class="popup-box">
+
+        <div class="popup-icon">
+            <i class="fa-solid fa-gear"></i>
+        </div>
+
+        <h2>Account Settings</h2>
+
+        <p>Manage your account preferences.</p>
+
+        <div class="popup-buttons">
+            <button class="cancel-btn" id="closeSettings">
+                Close
+            </button>
+        </div>
+
+    </div>
+
+</div>
+
+
+<div id="changePasswordPopup" class="popup-overlay">
+
+    <div class="popup-box">
+
+        <div class="popup-icon">
+            <i class="fa-solid fa-key"></i>
+        </div>
+
+        <h2>Change Password</h2>
+
+        <input type="password" placeholder="Current Password">
+
+        <input type="password" placeholder="New Password">
+
+        <input type="password" placeholder="Confirm Password">
+
+        <div class="popup-buttons">
+
+            <button class="cancel-btn" id="closePassword">
+                Cancel
+            </button>
+
+            <button class="logout-btn">
+                Update
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- Logout Popup -->
+<div id="logoutPopup" class="popup-overlay">
+
+    <div class="popup-box">
+
+        <div class="popup-icon logout-icon">
+            <i class="fas fa-sign-out-alt"></i>
+        </div>
+
+        <h2>Logout</h2>
+
+        <p>Are you sure you want to logout?</p>
+
+        <div class="popup-buttons">
+            <button id="cancelLogout" class="cancel-btn">Cancel</button>
+            <button id="confirmLogout" class="logout-btn">Logout</button>
+        </div>
+
+    </div>
+
+</div>
+<script src="dashboard.js"></script>
+
+</body>
+
+</html>

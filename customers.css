@@ -1,0 +1,167 @@
+:root {
+  --customer-accent: #5b7f3a;
+  --customer-soft: #f0f5e8;
+}
+
+.customer-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 220px;
+}
+
+.customer-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, var(--lime), #b9d96b);
+  color: #213421;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.customer-meta strong {
+  display: block;
+  font-size: 15px;
+}
+
+.customer-meta small {
+  display: block;
+  color: var(--muted);
+  margin-top: 3px;
+}
+
+.customer-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 11px;
+  border-radius: 999px;
+  background: var(--customer-soft);
+  color: var(--customer-accent);
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.customer-pill.warn {
+  background: #fff5de;
+  color: #b06d0d;
+}
+
+.customer-pill.danger {
+  background: #ffe8e4;
+  color: #b83d2f;
+}
+
+.row-actions {
+  position: relative;
+  display: inline-block;
+}
+
+.action-menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 6px);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  box-shadow: 0 14px 36px rgba(20, 30, 24, 0.12);
+  min-width: 180px;
+  padding: 8px;
+  display: none;
+  z-index: 10;
+}
+
+.action-menu.open {
+  display: block;
+}
+
+.action-menu button {
+  width: 100%;
+  text-align: left;
+  border: 0;
+  background: transparent;
+  padding: 10px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: var(--ink);
+}
+
+.action-menu button:hover {
+  background: var(--soft);
+}
+
+.action-menu .delete-action {
+  color: #b83d2f;
+}
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(13, 20, 16, 0.38);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 30;
+}
+
+.modal-backdrop.open {
+  display: flex;
+}
+
+.modal {
+  width: min(100%, 430px);
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 24px 60px rgba(10, 18, 14, 0.16);
+  position: relative;
+}
+
+.close-modal {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  border: 0;
+  background: transparent;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--muted);
+}
+
+.modal .overline {
+  margin: 0 0 8px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.15px;
+  color: var(--customer-accent);
+}
+
+.modal h2 {
+  margin: 0 0 16px;
+  font-size: 24px;
+}
+
+.modal label {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+.modal input,
+.modal select {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 11px 12px;
+  margin-top: 7px;
+}
+
+.modal .primary {
+  margin-top: 8px;
+}

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Stackly POS — Settings</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="products.css">
+  <link rel="stylesheet" href="products-bright.css">
+  <link rel="stylesheet" href="settings.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="logo" href="dashboard.html">stackly<span>.</span></a>
+      <nav class="side-nav" aria-label="POS modules">
+        <p class="nav-label">MAIN MENU</p>
+        <a href="dashboard.html"><span>▦</span> Dashboard</a>
+        <a href="products.html"><span>□</span> Products</a>
+        <a href="sales.html"><span>▤</span> Sales <b>12</b></a>
+        <a href="customers.html"><span>♙</span> Customers</a>
+        <p class="nav-label">MANAGEMENT</p>
+        <a href="inventory.html"><span>⌘</span> Inventory</a>
+        <a href="reports.html"><span>◔</span> Reports</a>
+        <a href="suppliers.html"><span>♜</span> Suppliers</a>
+        <a class="active" href="settings.html"><span>⚙</span> Settings</a>
+      </nav>
+      <div class="help-card" id="helpCard"><span>?</span><div><strong>Need help?</strong><small>View support centre</small></div></div>
+      <div class="profile" id="sidebarProfile"><div class="avatar">SR</div><div><strong>Siri Reddy</strong><small>Administrator</small></div><button id="sidebarProfileButton" aria-label="Profile options">⋮</button></div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar"><button class="mobile-menu" id="menuToggle">☰</button><div class="breadcrumbs">System <span>/</span> <strong>Settings</strong></div><div class="top-actions"><button class="top-avatar" type="button" aria-label="User profile" title="Siri Reddy">SR</button></div></header>
+      <section class="page-head"><div><p class="overline">STORE CONTROL</p><h1>Settings</h1><p class="subtitle">Tune your workspace, preferences, and store operations.</p></div><button class="primary" id="saveSettings">💾 Save changes</button></section>
+      <section class="settings-grid">
+        <article class="settings-card">
+          <h2>Store profile</h2>
+          <label>Store name<input id="storeName" value="Stackly Store"></label>
+          <label>Business email<input id="businessEmail" value="admin@stackly.com"></label>
+          <label>Currency<select id="currency"><option>Indian Rupee (₹)</option><option>US Dollar ($)</option></select></label>
+        </article>
+
+        <article class="settings-card">
+          <h2>Preferences</h2>
+          <div class="setting-row"><div><strong>Email alerts</strong><p>Receive daily sales summaries</p></div><button class="switch on" data-setting="email"></button></div>
+          <div class="setting-row"><div><strong>Low stock alerts</strong><p>Get notified when stock is low</p></div><button class="switch on" data-setting="stock"></button></div>
+          <div class="setting-row"><div><strong>Dark mode</strong><p>Use the darker interface theme</p></div><button class="switch" data-setting="dark"></button></div>
+        </article>
+
+        <article class="settings-card wide">
+          <h2>Security</h2>
+          <div class="setting-row"><div><strong>Two-step sign-in</strong><p>Add an extra layer for admin accounts</p></div><button class="switch on" data-setting="security"></button></div>
+          <div class="setting-row"><div><strong>Auto backup</strong><p>Backup invoices and customer data each night</p></div><button class="switch on" data-setting="backup"></button></div>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <div class="modal-backdrop" id="profileModal"><div class="modal"><button type="button" class="close-modal" id="closeProfileModal">×</button><p class="overline">USER PROFILE</p><h2>Siri Reddy</h2><p class="subtitle">Administrator</p><p>Email: siri@stackly.com</p><p>Role: Store manager</p></div></div>
+  <div class="toast" id="toast"></div>
+  <script src="settings.js"></script>
+</body>
+</html>

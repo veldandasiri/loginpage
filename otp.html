@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Verify OTP | Stackly</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<link rel="stylesheet" href="otp.css">
+
+</head>
+
+<body>
+
+<div class="background">
+
+<span class="circle circle1"></span>
+<span class="circle circle2"></span>
+
+<span class="blob blob1"></span>
+<span class="blob blob2"></span>
+
+</div>
+
+<div class="login-card">
+
+<div class="logo">
+
+<div class="logo-icon">
+<i class="fa-solid fa-shield-halved"></i>
+</div>
+
+<div>
+<h2>STACKLY</h2>
+<p>Enterprise Resource Planning</p>
+</div>
+
+</div>
+
+<div class="heading">
+
+<h1>Verify OTP</h1>
+
+<p>
+Enter the 6-digit verification code sent to your Email or Mobile Number.
+</p>
+
+</div>
+
+<form id="otpForm">
+
+<div class="form-group">
+
+<label>OTP</label>
+
+<div class="input-box">
+
+<i class="fa-solid fa-key"></i>
+
+<input
+type="text"
+id="otp"
+maxlength="6"
+placeholder="Enter OTP">
+
+</div>
+
+</div>
+
+<button class="login-btn" type="submit">
+
+Verify OTP
+
+<i class="fa-solid fa-circle-check"></i>
+
+</button>
+
+<p id="msg"></p>
+
+<div class="signup">
+
+Didn't receive OTP?
+
+<a href="forgotpassword.html">
+
+Resend OTP
+
+</a>
+
+</div>
+
+</form>
+
+</div>
+
+<!-- Popup -->
+<div id="popup" class="popup-overlay">
+    <div class="popup-box">
+
+        <div class="popup-icon">✔</div>
+
+        <h2 id="popupTitle">Success</h2>
+
+        <p id="popupMessage"></p>
+
+        <button type="button" onclick="closePopup()">OK</button>
+
+    </div>
+</div>
+<script src="otp.js"></script>
+
+</body>
+
+</html>

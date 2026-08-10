@@ -1,0 +1,171 @@
+:root {
+  --sales-accent: #5b7f3a;
+  --sales-soft: #f0f5e8;
+}
+
+.table-card .filter-row {
+  padding: 16px 32px 0;
+}
+
+.table-card .filter {
+  border: 1px solid var(--line);
+}
+
+.table-card .filter.active {
+  background: var(--sales-soft);
+  color: var(--sales-accent);
+  border-color: var(--sales-accent);
+}
+
+.sales-order {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 220px;
+}
+
+.sales-order strong {
+  display: block;
+  font-size: 15px;
+}
+
+.sales-order small {
+  display: block;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+.sales-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 11px;
+  border-radius: 999px;
+  background: var(--sales-soft);
+  color: var(--sales-accent);
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.sales-pill.warn {
+  background: #fff5de;
+  color: #b06d0d;
+}
+
+.sales-pill.danger {
+  background: #ffe8e4;
+  color: #b83d2f;
+}
+
+.sales-payment {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.sales-amount {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+/* Bulk action bar */
+.bulk-bar {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 16px 32px 0;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: var(--sales-soft);
+  border: 1px solid var(--sales-accent);
+}
+
+.bulk-bar.show {
+  display: flex;
+}
+
+.bulk-bar #bulkCount {
+  font-weight: 700;
+  color: var(--sales-accent);
+}
+
+.bulk-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.bulk-actions button {
+  font-size: 13px;
+  padding: 8px 12px;
+}
+
+/* Order detail modal */
+.order-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin: 18px 0;
+}
+
+.order-detail-grid > div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.order-detail-grid small {
+  color: var(--muted);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.order-detail-grid strong {
+  font-size: 15px;
+  color: var(--ink);
+}
+
+/* Make the Add Sale modal slightly narrower than the default modal
+   and ensure it stays fully within the viewport without an internal scrollbar */
+/* Add Sale Modal */
+#saleModal {
+    display: none;
+    padding: 20px;
+}
+
+#saleModal.open {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#saleModal .modal {
+    width: 460px;
+    max-width: 100%;
+    max-height: 90vh;
+
+    background: #fff;
+    border-radius: 18px;
+
+    padding: 22px;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow-y: auto;
+}
+
+#saleModal .modal form,
+#saleModal #saleForm {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+#saleModal .modal button[type="submit"],
+#saleModal #saleForm button[type="submit"] {
+    width: 100%;
+    margin-top: 10px;
+    flex-shrink: 0;
+}

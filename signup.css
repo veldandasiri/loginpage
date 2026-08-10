@@ -1,0 +1,1090 @@
+/* ==========================================
+   STACKLY SIGNUP PAGE
+========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Outfit',sans-serif;
+}
+
+html,
+body{
+    width:100%;
+    min-height:100%;
+}
+
+body{
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:40px 20px;
+
+    overflow:auto;
+
+    background:
+    linear-gradient(
+    135deg,
+    #eef4ff 0%,
+    #f8f2ff 35%,
+    #fef7fb 70%,
+    #edf5ff 100%);
+
+    position:relative;
+
+}
+
+/*==================================
+BACKGROUND
+===================================*/
+
+.background{
+
+    position:fixed;
+
+    inset:0;
+
+    overflow:hidden;
+
+    z-index:-1;
+
+}
+
+/* Pink Blob */
+
+.blob1{
+
+    position:absolute;
+
+    width:520px;
+
+    height:520px;
+
+    left:-120px;
+
+    bottom:-180px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(circle,
+    rgba(255,120,170,.55),
+    transparent 70%);
+
+    filter:blur(35px);
+
+}
+
+/* Blue Blob */
+
+.blob2{
+
+    position:absolute;
+
+    width:480px;
+
+    height:480px;
+
+    right:-120px;
+
+    top:-150px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(circle,
+    rgba(110,170,255,.45),
+    transparent 70%);
+
+    filter:blur(35px);
+
+}
+
+/* Decorative Circles */
+
+.circle{
+
+    position:absolute;
+
+    border-radius:50%;
+
+}
+
+.circle1{
+
+    width:170px;
+
+    height:170px;
+
+    background:
+    linear-gradient(
+    135deg,
+    #ff9cc8,
+    #ff72b2);
+
+    left:120px;
+
+    bottom:100px;
+
+    opacity:.85;
+
+}
+
+.circle2{
+
+    width:190px;
+
+    height:190px;
+
+    background:
+    linear-gradient(
+    135deg,
+    #82b9ff,
+    #5a97ff);
+
+    right:120px;
+
+    top:90px;
+
+    opacity:.9;
+
+}
+
+/* Waves */
+
+.wave{
+
+    position:absolute;
+
+    width:100%;
+
+    height:100%;
+
+}
+
+.wave1{
+
+    opacity:.55;
+
+}
+
+.wave2{
+
+    opacity:.35;
+
+}
+
+/*==================================
+SIGNUP CARD
+===================================*/
+
+.login-card{
+
+    width:560px;
+
+    padding:42px;
+
+    border-radius:32px;
+
+    background:
+    rgba(255,255,255,.35);
+
+    backdrop-filter:blur(22px);
+
+    border:
+    1px solid rgba(255,255,255,.75);
+
+    box-shadow:
+    0 30px 70px rgba(0,0,0,.10);
+
+    position:relative;
+
+}
+
+/*==================================
+LOGO
+===================================*/
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    margin-bottom:30px;
+
+}
+
+.logo-icon{
+
+    width:72px;
+
+    height:72px;
+
+    border-radius:20px;
+
+    background:
+    linear-gradient(
+    135deg,
+    #8B1E3F,
+    #B3275A);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#fff;
+
+    font-size:30px;
+
+    box-shadow:
+    0 18px 35px rgba(161,40,74,.28);
+
+}
+
+.logo h2{
+
+    font-size:34px;
+
+    color:#8B1E3F;
+
+    font-weight:800;
+
+}
+
+.logo p{
+
+    color:#777;
+
+    font-size:14px;
+
+}
+
+/*==================================
+HEADING
+===================================*/
+
+.heading{
+
+    margin-bottom:30px;
+
+}
+
+.heading h1{
+
+    font-size:38px;
+
+    color:#8B1E3F;
+
+    margin-bottom:8px;
+
+}
+
+.heading p{
+
+    color:#666;
+
+    font-size:15px;
+
+    line-height:1.6;
+
+}
+
+
+/* ==========================================
+   FORM
+========================================== */
+
+.form-group{
+    margin-bottom:22px;
+}
+
+.form-group label{
+    display:block;
+    margin-bottom:10px;
+    font-size:15px;
+    font-weight:600;
+    color:#8B1E3F;
+}
+
+.input-box{
+
+    display:flex;
+    align-items:center;
+
+    width:100%;
+    height:60px;
+
+    padding:0 20px;
+
+    border-radius:18px;
+
+    background:rgba(255,255,255,.55);
+
+    border:1px solid rgba(255,255,255,.85);
+
+    transition:.35s ease;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.04);
+
+}
+
+.input-box:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+    0 15px 30px rgba(0,0,0,.08);
+
+}
+
+.input-box:focus-within{
+
+    border:1px solid #9d2b51;
+
+    box-shadow:
+    0 0 0 5px rgba(157,43,81,.12);
+
+}
+
+.input-box i:first-child{
+
+    color:#8B1E3F;
+
+    font-size:18px;
+
+}
+
+.input-box input{
+
+    flex:1;
+
+    height:100%;
+
+    border:none;
+
+    outline:none;
+
+    background:transparent;
+
+    padding:0 15px;
+
+    color:#444;
+
+    font-size:16px;
+
+}
+
+.input-box input::placeholder{
+
+    color:#9b9b9b;
+
+}
+
+.eye{
+
+    cursor:pointer;
+
+    color:#777;
+
+    transition:.3s;
+
+}
+
+.eye:hover{
+
+    color:#8B1E3F;
+
+}
+
+/* ==========================================
+   OPTIONS
+========================================== */
+
+.options{
+
+    margin:20px 0 28px;
+
+}
+
+.remember{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:10px;
+
+    color:#666;
+
+    font-size:14px;
+
+    line-height:1.5;
+
+    cursor:pointer;
+
+}
+
+.remember input{
+
+    margin-top:3px;
+
+    accent-color:#8B1E3F;
+
+}
+
+/* ==========================================
+   BUTTON
+========================================== */
+
+.login-btn{
+
+    width:100%;
+
+    height:60px;
+
+    border:none;
+
+    border-radius:18px;
+
+    cursor:pointer;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:12px;
+
+    font-size:17px;
+
+    font-weight:700;
+
+    color:#fff;
+
+    background:
+    linear-gradient(
+    135deg,
+    #8B1E3F,
+    #B3275A);
+
+    box-shadow:
+    0 20px 35px rgba(161,40,74,.30);
+
+    transition:.35s;
+
+}
+
+.login-btn:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+    0 28px 45px rgba(161,40,74,.38);
+
+}
+
+.login-btn i{
+
+    transition:.3s;
+
+}
+
+.login-btn:hover i{
+
+    transform:translateX(6px);
+
+}
+
+#message{
+
+    text-align:center;
+
+    margin-top:18px;
+
+    font-size:15px;
+
+    min-height:20px;
+
+}
+
+/* ==========================================
+   DIVIDER
+========================================== */
+
+.divider{
+
+    position:relative;
+
+    text-align:center;
+
+    margin:35px 0;
+
+}
+
+.divider::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:100%;
+
+    height:1px;
+
+    background:#e5e5e5;
+
+    left:0;
+
+    top:50%;
+
+}
+
+.divider span{
+
+    position:relative;
+
+    padding:0 18px;
+
+    background:rgba(255,255,255,.9);
+
+    color:#999;
+
+    font-size:14px;
+
+}
+
+/* ==========================================
+   SOCIAL BUTTONS
+========================================== */
+
+.social{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:16px;
+
+}
+
+.social button{
+
+    width:56px;
+
+    height:56px;
+
+    border:none;
+
+    border-radius:18px;
+
+    background:rgba(255,255,255,.75);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+    box-shadow:
+    0 10px 20px rgba(0,0,0,.05);
+
+}
+
+.social button:hover{
+
+    transform:translateY(-5px);
+
+    background:#fff;
+
+}
+
+.social img{
+
+    width:24px;
+
+    height:24px;
+
+}
+
+/* ==========================================
+   LOGIN LINK
+========================================== */
+
+.signup{
+
+    margin-top:32px;
+
+    text-align:center;
+
+    color:#666;
+
+    font-size:15px;
+
+}
+
+.signup a{
+
+    color:#8B1E3F;
+
+    text-decoration:none;
+
+    font-weight:700;
+
+}
+
+.signup a:hover{
+
+    text-decoration:underline;
+
+}
+
+
+/* ==========================================
+   GLASS ANIMATIONS
+========================================== */
+
+.login-card{
+    animation:cardFloat 5s ease-in-out infinite;
+    overflow:hidden;
+}
+
+@keyframes cardFloat{
+
+    0%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-8px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
+
+}
+
+/* Moving Background Blobs */
+
+.blob1,
+.blob2{
+
+    animation:blobMove 12s ease-in-out infinite;
+
+}
+
+.blob2{
+
+    animation-delay:3s;
+
+}
+
+@keyframes blobMove{
+
+    0%{
+        transform:translate(0,0) scale(1);
+    }
+
+    25%{
+        transform:translate(-25px,18px) scale(1.05);
+    }
+
+    50%{
+        transform:translate(18px,-18px) scale(.95);
+    }
+
+    75%{
+        transform:translate(-15px,12px) scale(1.02);
+    }
+
+    100%{
+        transform:translate(0,0) scale(1);
+    }
+
+}
+
+/* Glass Shine */
+
+.login-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-120%;
+
+    left:-65%;
+
+    width:60%;
+
+    height:250%;
+
+    background:
+
+    linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,.45),
+        transparent
+    );
+
+    transform:rotate(20deg);
+
+    transition:.8s;
+
+}
+
+.login-card:hover::before{
+
+    left:140%;
+
+}
+
+/* Input Animation */
+
+.input-box input{
+
+    transition:.3s;
+
+}
+
+.input-box input:focus{
+
+    transform:translateX(2px);
+
+}
+
+/* Button Ripple */
+
+.login-btn{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.login-btn::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:0;
+
+    height:0;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.25);
+
+    transition:.5s;
+
+}
+
+.login-btn:hover::after{
+
+    width:420px;
+
+    height:420px;
+
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:992px){
+
+.login-card{
+
+    width:500px;
+
+    padding:36px;
+
+}
+
+.heading h1{
+
+    font-size:34px;
+
+}
+
+.logo h2{
+
+    font-size:30px;
+
+}
+
+}
+
+/* Tablet */
+
+@media(max-width:768px){
+
+body{
+
+    padding:25px;
+
+}
+
+.login-card{
+
+    width:100%;
+
+    max-width:520px;
+
+    padding:30px;
+
+}
+
+.logo{
+
+    flex-direction:column;
+
+    text-align:center;
+
+}
+
+.heading{
+
+    text-align:center;
+
+}
+
+.circle1{
+
+    width:130px;
+
+    height:130px;
+
+    left:40px;
+
+    bottom:70px;
+
+}
+
+.circle2{
+
+    width:140px;
+
+    height:140px;
+
+    right:40px;
+
+    top:60px;
+
+}
+
+}
+
+/* Mobile */
+
+@media(max-width:480px){
+
+body{
+
+    padding:15px;
+
+}
+
+.login-card{
+
+    padding:22px;
+
+    border-radius:24px;
+
+}
+
+.logo-icon{
+
+    width:60px;
+
+    height:60px;
+
+    font-size:24px;
+
+}
+
+.logo h2{
+
+    font-size:26px;
+
+}
+
+.logo p{
+
+    font-size:13px;
+
+}
+
+.heading h1{
+
+    font-size:28px;
+
+}
+
+.heading p{
+
+    font-size:14px;
+
+}
+
+.input-box{
+
+    height:56px;
+
+}
+
+.login-btn{
+
+    height:56px;
+
+    font-size:16px;
+
+}
+
+.social{
+
+    gap:12px;
+
+}
+
+.social button{
+
+    width:48px;
+
+    height:48px;
+
+}
+
+.social img{
+
+    width:20px;
+
+    height:20px;
+
+}
+
+.signup{
+
+    font-size:14px;
+
+}
+
+}
+
+/* ==========================================
+   CUSTOM SCROLLBAR
+========================================== */
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#cda4b6;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#f5f5f5;
+
+}
+
+
+
+
+/* ===== Popup ===== */
+
+.popup-overlay{
+    position:fixed;
+    inset:0;
+    display:none;
+    justify-content:center;
+    align-items:center;
+    background:rgba(0,0,0,.45);
+    backdrop-filter:blur(5px);
+    z-index:99999;
+}
+
+.popup-box{
+    width:380px;
+    background:#fff;
+    border-radius:18px;
+    padding:30px;
+    text-align:center;
+    box-shadow:0 20px 50px rgba(0,0,0,.25);
+    animation:popup .3s ease;
+}
+
+@keyframes popup{
+    from{
+        opacity:0;
+        transform:scale(.8);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+.popup-icon{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    margin:auto auto 18px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#fff;
+    font-size:34px;
+    background:#28a745;
+}
+
+.popup-box h2{
+    color:#8B1E3F;
+    margin-bottom:10px;
+}
+
+.popup-box p{
+    color:#666;
+    margin-bottom:25px;
+}
+
+.popup-box button{
+    width:120px;
+    height:45px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    color:#fff;
+    background:#8B1E3F;
+    font-size:16px;
+}
+
+.popup-box button:hover{
+    background:#a3274d;
+}

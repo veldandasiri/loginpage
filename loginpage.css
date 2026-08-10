@@ -1,0 +1,701 @@
+/* ==========================
+   GOOGLE FONT
+========================== */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Outfit',sans-serif;
+}
+
+html,
+body{
+    width:100%;
+    height:100%;
+}
+
+/* ==========================
+   BODY
+========================== */
+
+body{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    overflow:hidden;
+
+    background:
+    linear-gradient(135deg,
+    #edf1ff 0%,
+    #f8f3ff 35%,
+    #eef5ff 65%,
+    #f9eef6 100%);
+
+    position:relative;
+
+}
+
+/* ==========================
+   BACKGROUND
+========================== */
+
+.background{
+
+    position:absolute;
+
+    inset:0;
+
+    overflow:hidden;
+
+}
+
+/* Pink Blob */
+
+.blob1{
+
+    position:absolute;
+
+    width:420px;
+
+    height:420px;
+
+    background:rgba(255,90,170,.20);
+
+    border-radius:50%;
+
+    filter:blur(90px);
+
+    bottom:-120px;
+
+    left:-80px;
+
+}
+
+/* Blue Blob */
+
+.blob2{
+
+    position:absolute;
+
+    width:380px;
+
+    height:380px;
+
+    background:rgba(85,140,255,.18);
+
+    border-radius:50%;
+
+    filter:blur(90px);
+
+    top:-60px;
+
+    right:-60px;
+
+}
+
+/* Left Circle */
+
+.circle1{
+
+    position:absolute;
+
+    width:170px;
+
+    height:170px;
+
+    background:linear-gradient(#ff7ab8,#f49ad2);
+
+    opacity:.55;
+
+    border-radius:50%;
+
+    left:120px;
+
+    bottom:130px;
+
+    filter:blur(2px);
+
+}
+
+/* Right Circle */
+
+.circle2{
+
+    position:absolute;
+
+    width:180px;
+
+    height:180px;
+
+    background:linear-gradient(#6ba8ff,#90b9ff);
+
+    opacity:.65;
+
+    border-radius:50%;
+
+    right:180px;
+
+    top:120px;
+
+}
+
+/* White Waves */
+
+.wave{
+
+    position:absolute;
+
+    width:100%;
+
+    height:100%;
+
+    left:0;
+
+    top:0;
+
+}
+
+.wave1{
+
+    opacity:.45;
+
+}
+
+.wave2{
+
+    opacity:.35;
+
+}
+
+/* ==========================
+   LOGIN CARD
+========================== */
+
+.login-card{
+
+    position:relative;
+
+    width:560px;
+
+    background:
+
+    rgba(255,255,255,.38);
+
+    backdrop-filter:blur(24px);
+
+    border:
+
+    1px solid rgba(255,255,255,.75);
+
+    border-radius:34px;
+
+    padding:42px;
+
+    box-shadow:
+
+    0 30px 80px rgba(80,80,120,.12);
+
+    z-index:10;
+
+}
+
+/* ==========================
+   LOGO
+========================== */
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    margin-bottom:45px;
+
+}
+
+.logo-icon{
+
+    width:82px;
+
+    height:82px;
+
+    background:
+
+    linear-gradient(135deg,#931c45,#b01b53);
+
+    border-radius:22px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#fff;
+
+    font-size:34px;
+
+    box-shadow:
+
+    0 18px 35px rgba(161,40,74,.30);
+
+}
+
+.logo h2{
+
+    font-size:58px;
+
+    color:#911f46;
+
+    font-weight:800;
+
+    letter-spacing:.5px;
+
+}
+
+.logo p{
+
+    color:#666;
+
+    margin-top:6px;
+
+    font-size:20px;
+
+}
+
+/* ==========================
+   HEADING
+========================== */
+
+.heading{
+
+    text-align:center;
+
+    margin-bottom:38px;
+
+}
+
+.heading h1{
+
+    font-size:64px;
+
+    color:#8d1d43;
+
+    margin-bottom:14px;
+
+    font-weight:800;
+
+}
+
+.heading p{
+
+    color:#646b75;
+
+    font-size:24px;
+
+    line-height:1.6;
+
+}
+
+
+/* ==========================================
+   FORM
+========================================== */
+
+.form-group{
+    margin-bottom:24px;
+}
+
+.form-group label{
+    display:block;
+    margin-bottom:10px;
+    font-size:15px;
+    font-weight:600;
+    color:#8B1E3F;
+}
+
+.input-box{
+    display:flex;
+    align-items:center;
+    height:62px;
+    padding:0 20px;
+    background:rgba(255,255,255,.55);
+    border:1px solid rgba(255,255,255,.85);
+    border-radius:18px;
+    transition:.35s ease;
+    box-shadow:0 8px 20px rgba(0,0,0,.04);
+}
+
+.input-box:hover{
+    transform:translateY(-2px);
+    box-shadow:0 15px 30px rgba(0,0,0,.08);
+}
+
+.input-box:focus-within{
+    border:1px solid #9d2b51;
+    box-shadow:0 0 0 5px rgba(157,43,81,.12);
+}
+
+.input-box i:first-child{
+    color:#8B1E3F;
+    font-size:18px;
+}
+
+.input-box input{
+    flex:1;
+    border:none;
+    outline:none;
+    background:transparent;
+    padding:0 15px;
+    font-size:16px;
+    color:#444;
+}
+
+.input-box input::placeholder{
+    color:#9c9c9c;
+}
+
+.eye{
+    cursor:pointer;
+    color:#7d7d7d;
+    transition:.3s;
+}
+
+.eye:hover{
+    color:#8B1E3F;
+}
+
+/* ==========================================
+   OPTIONS
+========================================== */
+
+.options{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin:25px 0;
+    font-size:14px;
+}
+
+.remember{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    color:#666;
+    cursor:pointer;
+}
+
+.remember input{
+    accent-color:#8B1E3F;
+}
+
+.options a{
+    text-decoration:none;
+    color:#8B1E3F;
+    font-weight:600;
+}
+
+.options a:hover{
+    text-decoration:underline;
+}
+
+/* ==========================================
+   LOGIN BUTTON
+========================================== */
+
+.login-btn{
+    width:100%;
+    height:62px;
+    border:none;
+    border-radius:18px;
+    cursor:pointer;
+    color:#fff;
+    font-size:18px;
+    font-weight:700;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:12px;
+    background:linear-gradient(135deg,#8B1E3F,#B3275A);
+    box-shadow:0 20px 35px rgba(161,40,74,.28);
+    transition:.35s;
+}
+
+.login-btn:hover{
+    transform:translateY(-4px);
+    box-shadow:0 30px 45px rgba(161,40,74,.35);
+}
+
+.login-btn i{
+    transition:.3s;
+}
+
+.login-btn:hover i{
+    transform:translateX(6px);
+}
+
+#message{
+    text-align:center;
+    margin-top:15px;
+    font-size:15px;
+}
+
+/* ==========================================
+   DIVIDER
+========================================== */
+
+.divider{
+    position:relative;
+    text-align:center;
+    margin:35px 0;
+}
+
+.divider::before{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:1px;
+    background:#e5e5e5;
+    top:50%;
+    left:0;
+}
+
+.divider span{
+    position:relative;
+    background:rgba(255,255,255,.9);
+    padding:0 18px;
+    color:#999;
+    font-size:14px;
+}
+
+/* ==========================================
+   SOCIAL BUTTONS
+========================================== */
+
+.social{
+    display:flex;
+    justify-content:center;
+    gap:16px;
+}
+
+.social button{
+    width:58px;
+    height:58px;
+    border:none;
+    border-radius:18px;
+    background:rgba(255,255,255,.7);
+    cursor:pointer;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    transition:.3s;
+    box-shadow:0 10px 20px rgba(0,0,0,.05);
+}
+
+.social button:hover{
+    transform:translateY(-5px);
+}
+
+.social img{
+    width:26px;
+    height:26px;
+}
+
+/* ==========================================
+   SIGNUP
+========================================== */
+
+.signup{
+    margin-top:35px;
+    text-align:center;
+    font-size:15px;
+    color:#666;
+}
+
+.signup a{
+    text-decoration:none;
+    color:#8B1E3F;
+    font-weight:700;
+}
+
+.signup a:hover{
+    text-decoration:underline;
+}
+
+
+
+
+/*==============================
+   TOAST POPUP
+==============================*/
+
+.toast{
+
+    position:fixed;
+
+    top:25px;
+
+    right:25px;
+
+    min-width:320px;
+
+    max-width:420px;
+
+    background:#fff;
+
+    color:#333;
+
+    padding:16px 22px;
+
+    border-radius:14px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.18);
+
+    border-left:6px solid #B3275A;
+
+    transform:translateX(500px);
+
+    opacity:0;
+
+    transition:.4s ease;
+
+    z-index:9999;
+
+}
+
+.toast.show{
+
+    transform:translateX(0);
+
+    opacity:1;
+
+}
+
+.toast i{
+
+    font-size:22px;
+
+    color:#B3275A;
+
+}
+
+.toast.success{
+
+    border-left-color:#28a745;
+
+}
+
+.toast.success i{
+
+    color:#28a745;
+
+}
+
+.toast.error{
+
+    border-left-color:#dc3545;
+
+}
+
+.toast.error i{
+
+    color:#dc3545;
+
+}
+
+.toast span{
+
+    font-size:15px;
+
+    font-weight:500;
+
+}
+
+
+
+.popup-overlay{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.45);
+    backdrop-filter:blur(5px);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+.popup-box{
+    width:350px;
+    background:#fff;
+    border-radius:18px;
+    padding:30px;
+    text-align:center;
+    animation:popup .3s ease;
+    box-shadow:0 15px 40px rgba(0,0,0,.25);
+}
+
+@keyframes popup{
+    from{
+        transform:scale(.8);
+        opacity:0;
+    }
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+.popup-icon{
+    width:70px;
+    height:70px;
+    background:#28a745;
+    color:#fff;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:34px;
+    margin:auto;
+    margin-bottom:15px;
+}
+
+.popup-box h2{
+    color:#222;
+    margin-bottom:10px;
+}
+
+.popup-box p{
+    color:#666;
+    margin-bottom:25px;
+}
+
+.popup-box button{
+    padding:12px 35px;
+    border:none;
+    border-radius:10px;
+    background:#A12828;
+    color:#fff;
+    cursor:pointer;
+    font-size:16px;
+}
+
+.popup-box button:hover{
+    background:#861d1d;
+}

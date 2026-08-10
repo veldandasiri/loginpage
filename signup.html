@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Stackly Sign Up</title>
+
+    <!-- Google Font -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet"
+          href="signup.css">
+
+</head>
+
+<body>
+
+
+    <!-- Background -->
+
+    <div class="background">
+
+        <span class="circle circle1"></span>
+        <span class="circle circle2"></span>
+
+        <span class="blob blob1"></span>
+        <span class="blob blob2"></span>
+
+        <svg class="wave wave1"
+             viewBox="0 0 1440 320"
+             preserveAspectRatio="none">
+
+            <path d="M0,160 C220,280 380,40 720,140 C980,220 1180,40 1440,140"
+                  fill="none"
+                  stroke="rgba(255,255,255,.5)"
+                  stroke-width="2"/>
+
+        </svg>
+
+        <svg class="wave wave2"
+             viewBox="0 0 1440 320"
+             preserveAspectRatio="none">
+
+            <path d="M0,200 C260,60 480,260 720,180 C980,120 1200,260 1440,120"
+                  fill="none"
+                  stroke="rgba(255,255,255,.45)"
+                  stroke-width="2"/>
+
+        </svg>
+
+    </div>
+
+    <!-- Signup Card -->
+
+    <div class="login-card">
+
+        <!-- Logo -->
+
+        <div class="logo">
+
+            <div class="logo-icon">
+
+                <i class="fa-solid fa-layer-group"></i>
+
+            </div>
+
+            <div>
+
+                <h2>STACKLY</h2>
+
+                <p>Enterprise Resource Planning</p>
+
+            </div>
+
+        </div>
+
+        <!-- Heading -->
+
+        <div class="heading">
+
+            <h1>Create Account</h1>
+
+            <p>
+
+                Create your Stackly account to start managing your business.
+
+            </p>
+
+        </div>
+
+        <!-- Signup Form -->
+
+        <form id="signupForm">
+
+            <div class="form-group">
+
+                <label>Full Name</label>
+
+                <div class="input-box">
+
+                    <i class="fa-regular fa-user"></i>
+
+                    <input type="text"
+                           id="fullname"
+                           placeholder="Enter your full name">
+
+                </div>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Email Address</label>
+
+                <div class="input-box">
+
+                    <i class="fa-regular fa-envelope"></i>
+
+                    <input type="email"
+                           id="email"
+                           placeholder="Enter your email">
+
+                </div>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Phone Number</label>
+
+                <div class="input-box">
+
+                    <i class="fa-solid fa-phone"></i>
+
+                    <input type="tel"
+                           id="phone"
+                           placeholder="Enter your phone number">
+
+                </div>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Password</label>
+
+                <div class="input-box">
+
+                    <i class="fa-solid fa-lock"></i>
+
+                    <input type="password"
+                           id="password"
+                           placeholder="Create password">
+
+                    <i id="togglePassword"
+                       class="fa-regular fa-eye eye"></i>
+
+                </div>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Confirm Password</label>
+
+                <div class="input-box">
+
+                    <i class="fa-solid fa-lock"></i>
+
+                    <input type="password"
+                           id="confirmPassword"
+                           placeholder="Confirm password">
+
+                    <i id="toggleConfirmPassword"
+                       class="fa-regular fa-eye eye"></i>
+
+                </div>
+
+            </div>
+
+            <div class="options">
+
+                <label class="remember">
+
+                    <input type="checkbox">
+
+                    I agree to the Terms & Conditions
+
+                </label>
+
+            </div>
+
+            <button class="login-btn"
+                    type="submit">
+
+                Create Account
+
+                <i class="fa-solid fa-arrow-right-long"></i>
+
+            </button>
+
+            <p id="message"></p>
+
+        </form>
+
+        <div class="divider">
+
+            <span>OR</span>
+
+        </div>
+
+        <div class="social">
+
+            <button>
+
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg">
+
+            </button>
+
+            <button>
+
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg">
+
+            </button>
+
+            <button>
+
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg">
+
+            </button>
+
+        </div>
+
+        <div class="signup">
+
+            Already have an account?
+
+            <a href="loginpage.html">
+
+                Login
+
+            </a>
+
+        </div>
+
+    </div>
+<!-- Popup -->
+<div id="popup" class="popup-overlay">
+    <div class="popup-box">
+        <div class="popup-icon">✔</div>
+        <h2 id="popupTitle">Success</h2>
+        <p id="popupMessage"></p>
+        <button type="button" onclick="closePopup()">OK</button>
+    </div>
+</div>
+    <script src="signup.js"></script>
+  
+</body>
+
+</html>

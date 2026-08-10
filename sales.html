@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Stackly POS — Sales</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="products.css">
+  <link rel="stylesheet" href="products-bright.css">
+  <link rel="stylesheet" href="sales.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="logo" href="dashboard.html">stackly<span>.</span></a>
+      <nav class="side-nav" aria-label="POS modules">
+        <p class="nav-label">MAIN MENU</p>
+        <a href="dashboard.html"><span>▦</span> Dashboard</a>
+        <a href="products.html"><span>□</span> Products</a>
+        <a class="active" href="sales.html"><span>▤</span> Sales </a>
+        <a href="customers.html"><span>♙</span> Customers</a>
+        <p class="nav-label">MANAGEMENT</p>
+        <a href="inventory.html"><span>⌘</span> Inventory</a>
+        <a href="reports.html"><span>◔</span> Reports</a>
+        <a href="settings.html"><span>⚙</span> Settings</a>
+      </nav>
+      <div class="help-card" id="helpCard"><span>?</span><div><strong>Need help?</strong><small>View support centre</small></div></div>
+      <div class="profile" id="sidebarProfile"><div class="avatar">SR</div><div><strong>Siri Reddy</strong><small>Administrator</small></div><button id="sidebarProfileButton" aria-label="Profile options">⋮</button></div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <button class="mobile-menu" id="menuToggle">☰</button>
+        <div class="breadcrumbs">Commerce <span>/</span> <strong>Sales</strong></div>
+        <div class="top-actions"><button class="top-avatar" type="button" aria-label="User profile" title="Siri Reddy">SR</button></div>
+      </header>
+
+      <section class="page-head">
+        <div>
+          <p class="overline">TRANSACTION HUB</p>
+          <h1>Sales</h1>
+          <p class="subtitle">Track payments, fulfilment, and revenue from every order.</p>
+        </div>
+        <button class="primary" id="addSale">＋ Add sale</button>
+      </section>
+
+      <section class="metrics">
+        <article>
+          <span class="metric-icon green">▤</span>
+          <div>
+            <small>Total orders</small>
+            <strong id="totalOrders">4</strong>
+            <p>Across todays transactions</p>
+          </div>
+        </article>
+        <article>
+          <span class="metric-icon orange">₹</span>
+          <div>
+            <small>Revenue</small>
+            <strong id="totalRevenue">₹0</strong>
+            <p>Current batch value</p>
+          </div>
+        </article>
+        <article>
+          <span class="metric-icon blue">✓</span>
+          <div>
+            <small>Paid</small>
+            <strong id="paidOrders">0</strong>
+            <p>Transactions cleared</p>
+          </div>
+        </article>
+        <article>
+          <span class="metric-icon purple">⏳</span>
+          <div>
+            <small>Pending</small>
+            <strong id="pendingOrders">0</strong>
+            <p>Awaiting fulfilment</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="table-card">
+        <div class="table-header">
+          <div>
+            <h2>Recent orders</h2>
+            <p><span id="tableCount">0</span> orders in your sales log</p>
+          </div>
+          <div class="table-actions">
+            <label class="search"><span>⌕</span><input id="searchInput" placeholder="Search order or customer"></label>
+            <button class="secondary" id="filterBtn">☷ Filters</button>
+            <button class="secondary" id="exportBtn">⇩ Export</button>
+          </div>
+        </div>
+
+        <!-- Bulk action bar: hidden unless rows are selected -->
+        <div class="bulk-bar" id="bulkBar">
+          <span id="bulkCount">0 selected</span>
+          <div class="bulk-actions">
+            <button class="secondary" id="bulkMarkPaid">✓ Mark as Paid</button>
+            <button class="secondary" id="bulkMarkPending">⏳ Mark as Pending</button>
+            <button class="danger" id="bulkDelete">⌫ Delete selected</button>
+          </div>
+        </div>
+
+        <div class="filter-row">
+          <button class="filter active" data-status="All">All orders</button>
+          <button class="filter" data-status="Paid">Paid</button>
+          <button class="filter" data-status="Pending">Pending</button>
+          <button class="filter" data-status="Refunded">Refunded</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th><input type="checkbox" id="selectAll" aria-label="Select all"></th>
+                <th>ORDER</th>
+                <th>CUSTOMER</th>
+                <th>PRODUCTS</th>
+                <th>PAYMENT</th>
+                <th>AMOUNT</th>
+                <th>STATUS</th>
+                <th>ACTION</th>
+              </tr>
+            </thead>
+            <tbody id="salesRows"></tbody>
+          </table>
+        </div>
+        <footer class="table-footer">
+          <span id="rangeText">Showing 0 orders</span>
+          <div>
+            <button disabled>← Previous</button>
+            <button class="page active">1</button>
+            <button disabled>Next →</button>
+          </div>
+        </footer>
+      </section>
+    </main>
+  </div>
+
+  <!-- Add / Edit sale modal (shared) -->
+  <div class="modal-backdrop" id="saleModal">
+    <form class="modal" id="saleForm">
+      <button type="button" class="close-modal" id="closeSaleModal">×</button>
+      <p class="overline" id="saleModalOverline">NEW ORDER</p>
+      <h2 id="saleModalTitle">Add sale</h2>
+      <label>Order ID<input name="saleId" required placeholder="e.g. #ORD-1050"></label>
+      <label>Customer<input name="customer" required placeholder="e.g. Saanvi Rao"></label>
+      <label>Products<input name="products" required placeholder="e.g. Mug × 2, Candle"></label>
+      <label>Payment<select name="payment"><option>UPI</option><option>Card</option><option>Cash</option><option>Bank transfer</option></select></label>
+      <label>Amount<input name="amount" required type="number" min="0" step="0.01" placeholder="0.00"></label>
+      <label>Status<select name="status"><option>Paid</option><option>Pending</option><option>Refunded</option></select></label>
+      <button class="primary" type="submit" id="saleFormSubmit">Save order</button>
+    </form>
+  </div>
+
+  <!-- View order detail modal -->
+  <div class="modal-backdrop" id="viewModal">
+    <div class="modal">
+      <button type="button" class="close-modal" id="closeViewModal">×</button>
+      <p class="overline">ORDER DETAILS</p>
+      <h2 id="viewOrderId">#ORD-0000</h2>
+      <div class="order-detail-grid">
+        <div><small>Customer</small><strong id="viewCustomer">—</strong></div>
+        <div><small>Products</small><strong id="viewProducts">—</strong></div>
+        <div><small>Payment method</small><strong id="viewPayment">—</strong></div>
+        <div><small>Amount</small><strong id="viewAmount">—</strong></div>
+        <div><small>Status</small><strong id="viewStatus">—</strong></div>
+      </div>
+      <div class="modal-actions">
+        <button class="secondary" type="button" id="viewEditBtn">✎ Edit this order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="profileModal">
+    <div class="modal">
+      <button type="button" class="close-modal" id="closeProfileModal">×</button>
+      <p class="overline">USER PROFILE</p>
+      <h2>Siri Reddy</h2>
+      <p class="subtitle">Administrator</p>
+      <p>Email: siri@stackly.com</p>
+      <p>Role: Store manager</p>
+    </div>
+  </div>
+
+  <!-- Confirm delete modal (shared with products behaviour) -->
+  <div class="modal-backdrop" id="confirmModal">
+    <div class="modal confirm-modal">
+      <button type="button" class="close-modal" id="closeConfirmModal">×</button>
+      <p class="overline">CONFIRM ACTION</p>
+      <h2 id="confirmTitle">Delete item</h2>
+      <p id="confirmMessage">Are you sure?</p>
+      <div class="modal-actions">
+        <button class="secondary" id="cancelDelete">Cancel</button>
+        <button class="danger" id="confirmDelete">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="sales.js"></script>
+</body>
+</html>

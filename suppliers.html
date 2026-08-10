@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Stackly POS — Suppliers</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="products.css">
+  <link rel="stylesheet" href="products-bright.css">
+  <link rel="stylesheet" href="suppliers.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="logo" href="dashboard.html">stackly<span>.</span></a>
+      <nav class="side-nav" aria-label="POS modules">
+        <p class="nav-label">MAIN MENU</p>
+        <a href="dashboard.html"><span>▦</span> Dashboard</a>
+        <a href="products.html"><span>□</span> Products</a>
+        <a href="sales.html"><span>▤</span> Sales <b>12</b></a>
+        <a href="customers.html"><span>♙</span> Customers</a>
+        <p class="nav-label">MANAGEMENT</p>
+        <a href="inventory.html"><span>⌘</span> Inventory</a>
+        <a href="reports.html"><span>◔</span> Reports</a>
+        <a class="active" href="suppliers.html"><span>♜</span> Suppliers</a>
+        <a href="settings.html"><span>⚙</span> Settings</a>
+      </nav>
+      <div class="help-card" id="helpCard"><span>?</span><div><strong>Need help?</strong><small>View support centre</small></div></div>
+      <div class="profile" id="sidebarProfile"><div class="avatar">SR</div><div><strong>Siri Reddy</strong><small>Administrator</small></div><button id="sidebarProfileButton" aria-label="Profile options">⋮</button></div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar"><button class="mobile-menu" id="menuToggle">☰</button><div class="breadcrumbs">Procurement <span>/</span> <strong>Suppliers</strong></div><div class="top-actions"><button class="top-avatar" type="button" aria-label="User profile" title="Siri Reddy">SR</button></div></header>
+      <section class="page-head"><div><p class="overline">SUPPLIER NETWORK</p><h1>Suppliers</h1><p class="subtitle">Track vendor relationships, deliveries, and product sourcing.</p></div><button class="primary" id="addSupplier">＋ Add supplier</button></section>
+      <section class="metrics">
+        <article><span class="metric-icon green">♜</span><div><small>Active suppliers</small><strong id="totalSuppliers">0</strong><p>Across your network</p></div></article>
+        <article><span class="metric-icon orange">◷</span><div><small>Due deliveries</small><strong id="dueDeliveries">0</strong><p>Next 7 days</p></div></article>
+        <article><span class="metric-icon blue">₹</span><div><small>Open payables</small><strong id="openPayables">₹0</strong><p>Outstanding balance</p></div></article>
+        <article><span class="metric-icon purple">✓</span><div><small>On-time rate</small><strong id="onTimeRate">0%</strong><p>Reliable partners</p></div></article>
+      </section>
+      <section class="table-card">
+        <div class="table-header"><div><h2>All suppliers</h2><p><span id="tableCount">0</span> suppliers in your directory</p></div><div class="table-actions"><label class="search"><span>⌕</span><input id="searchInput" placeholder="Search supplier or contact"></label><button class="secondary" id="filterBtn">☷ Filters</button><button class="secondary" id="exportBtn">⇩ Export</button></div></div>
+        <div class="filter-row"><button class="filter active" data-status="All">All suppliers</button><button class="filter" data-status="Active">Active</button><button class="filter" data-status="Pending">Pending</button><button class="filter" data-status="Paused">Paused</button></div>
+        <div class="table-wrap"><table><thead><tr><th><input type="checkbox" aria-label="Select all"></th><th>SUPPLIER</th><th>CONTACT</th><th>PHONE</th><th>PRODUCTS</th><th>LAST DELIVERY</th><th>STATUS</th><th>ACTION</th></tr></thead><tbody id="supplierRows"></tbody></table></div>
+        <footer class="table-footer"><span id="rangeText">Showing 0 suppliers</span><div><button disabled>← Previous</button><button class="page active">1</button><button disabled>Next →</button></div></footer>
+      </section>
+    </main>
+  </div>
+
+  <div class="modal-backdrop" id="supplierModal">
+    <form class="modal" id="supplierForm">
+      <button type="button" class="close-modal" id="closeSupplierModal">×</button>
+      <p class="overline">NEW SUPPLIER</p>
+      <h2>Add supplier</h2>
+      <label>Supplier name<input name="supplierName" required placeholder="e.g. Craft & Form"></label>
+      <label>Contact person<input name="contactPerson" required placeholder="e.g. Maya Rao"></label>
+      <label>Phone<input name="supplierPhone" required placeholder="e.g. +91 98765 44001"></label>
+      <label>Products<input name="supplierProducts" required placeholder="e.g. Home decor, ceramics"></label>
+      <label>Last delivery<input name="lastDelivery" required placeholder="e.g. 18 Jul 2026"></label>
+      <label>Status<select name="supplierStatus"><option>Active</option><option>Pending</option><option>Paused</option></select></label>
+      <button class="primary" type="submit">Save supplier</button>
+    </form>
+  </div>
+
+  <div class="modal-backdrop" id="profileModal"><div class="modal"><button type="button" class="close-modal" id="closeProfileModal">×</button><p class="overline">USER PROFILE</p><h2>Siri Reddy</h2><p class="subtitle">Administrator</p><p>Email: siri@stackly.com</p><p>Role: Store manager</p></div></div>
+  <div class="toast" id="toast"></div>
+  <script src="suppliers.js"></script>
+</body>
+</html>
